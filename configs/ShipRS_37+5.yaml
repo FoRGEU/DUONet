@@ -1,0 +1,58 @@
+_BASE_: "./Base-RCNN-FPN.yaml"
+DATASETS:
+  TRAIN: ("coco_my_train1234",)
+  TEST: ("coco_my_val1234",)
+MODEL:
+  WEIGHTS: "/home/quchenyu/DUONet/configs/R-50.pkl"
+  MASK_ON: False
+  RESNETS:
+    DEPTH: 50
+  RPN:
+    HEAD_NAME: "StandardRPNHead"
+    BBOX_REG_WEIGHTS: (4.0, 4.0, 6.0, 5.0, 4.0)
+    BBOX_REG_LOSS_TYPE: probiou
+    BBOX_REG_LOSS_WEIGHT: 1.0
+    NMS_THRESH: 0.7
+    IOU_THRESHOLDS: [0.3, 0.7]
+  ANCHOR_GENERATOR:
+    NAME: "RotatedAnchorGenerator"
+    ANGLES: [ [-30, 0, 30, 60, 90, 120] ]
+  ROI_HEADS:
+     NAME: "OpenSetStandardROIHeads" # RROIHeads  
+     BATCH_SIZE_PER_IMAGE: 512   # faster, and good enough for this toy dataset (default: 512)
+     NUM_CLASSES: 43
+     NUM_KNOWN_CLASSES: 37
+     NMS_THRESH_TEST: 0.3
+     IOU_THRESHOLDS: [0.5]
+  PROPOSAL_GENERATOR:
+     NAME: "RRPN"
+  ROI_BOX_HEAD:
+    POOLER_TYPE: "ROIAlignRotated"
+    OUTPUT_LAYERS: "OpenDetFastRCNNOutputLayers"
+    # OUTPUT_LAYERS: "CosineFastRCNNOutputLayers"
+    BBOX_REG_LOSS_TYPE: probiou
+    BBOX_REG_LOSS_WEIGHT: 1.0
+    BBOX_REG_WEIGHTS: (10.0, 10.0, 5.0, 5.0, 10.0)
+    CLS_AGNOSTIC_BBOX_REG: True
+UPLOSS:
+  START_ITER: 100
+  SAMPLING_METRIC: "max_entropy"
+  TOPK: 3
+  ALPHA: 1.0
+  WEIGHT: 1.0
+ICLOSS:
+  OUT_DIM: 256
+  QUEUE_SIZE: 256
+  IN_QUEUE_SIZE: 16
+  BATCH_IOU_THRESH: 0.5
+  QUEUE_IOU_THRESH: 0.5
+  TEMPERATURE: 0.1
+  WEIGHT: 1.0
+SOLVER:
+  IMS_PER_BATCH: 8 #16
+  BASE_LR: 0.002
+  STEPS: (5000, 8500)
+  MAX_ITER: 12000
+  CHECKPOINT_PERIOD: 500
+  WARMUP_ITERS: 200
+OUTPUT_DIR: /home/quchenyu/DUONet/output/ShipRS_37+5
