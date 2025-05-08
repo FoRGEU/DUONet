@@ -18,7 +18,7 @@ pip install -v -e .
 ### 2. Prepare Dataset
 
 1. [ShipRSImageNet dataset](https://github.com/zzndream/ShipRSImageNet))
-2. [DOSR dataset]([yaqihan-9898/DOSR: a public dataset for oriented ship recognition](https://github.com/yaqihan-9898/DOSR))
+2. [DOSR dataset](https://github.com/yaqihan-9898/DOSR)
 3. [HRSC2016 dataset](https://www.kaggle.com/datasets/guofeng/hrsc2016)
 
 The files should be organized in the following structure:
