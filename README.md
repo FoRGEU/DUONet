@@ -55,8 +55,7 @@ python /home/quchenyu/DUONet/train_net.py --config-file /home/quchenyu/DUONet/co
 
 For reproducing any of the above mentioned results please run the `eval.sh` file and add pretrained weights accordingly.
 
-**Note:**
-For more training and evaluation details please check the [Deformable DETR](https://github.com/fundamentalvision/Deformable-DETR) reposistory.
+
 
 ## 🔧 License
 
