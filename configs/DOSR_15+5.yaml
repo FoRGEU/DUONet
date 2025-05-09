@@ -3,7 +3,7 @@ DATASETS:
   TRAIN: ("coco_my_train1234",)
   TEST: ("coco_my_val1234",)
 MODEL:
-  WEIGHTS: "/home/quchenyu/DUONet/configs/R-50.pkl"
+  WEIGHTS: "checkpoints/R-50.pkl"
   MASK_ON: False
   RESNETS:
     DEPTH: 50
