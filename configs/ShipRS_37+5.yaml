@@ -3,7 +3,7 @@ DATASETS:
   TRAIN: ("coco_my_train1234",)
   TEST: ("coco_my_val1234",)
 MODEL:
-  WEIGHTS: "/home/quchenyu/DUONet/configs/R-50.pkl"
+  WEIGHTS: "checkpoints/R-50.pkl"
   MASK_ON: False
   RESNETS:
     DEPTH: 50
@@ -55,4 +55,4 @@ SOLVER:
   MAX_ITER: 12000
   CHECKPOINT_PERIOD: 500
   WARMUP_ITERS: 200
-OUTPUT_DIR: /home/quchenyu/DUONet/output/ShipRS_37+5
+OUTPUT_DIR: ./output/ShipRS_37+5
