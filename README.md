@@ -46,7 +46,7 @@ Then, Dataloader and Evaluator followed for  DUONet is in VOC format.
 
 ## 🚀 Training
 
-First, you need to download [pretrained weights]((https://gitcode.com/mirrors/Microsoft/resnet-50)) in the model zoo.
+First, you need to download [pretrained weights](https://gitcode.com/mirrors/Microsoft/resnet-50) in the model zoo.
    
 Then, you can use the script in the tools file to perform category divisionfile.
 
