@@ -46,9 +46,12 @@ Then, Dataloader and Evaluator followed for  DUONet is in VOC format.
 
 ## 🚀 Training
 
-The training process is the same as detectron2, or run the You can use the script in the tools file to perform category divisionfile.
+First, you need to download [pretrained weights]((https://gitcode.com/mirrors/Microsoft/resnet-50)) in the model zoo.
+   
+Then, you can use the script in the tools file to perform category divisionfile.
+
 ```bash
-python /home/quchenyu/DUONet/train_net.py --config-file /home/quchenyu/DUONet/configs/ShipRS_config_37+5.yaml
+python train_net.py --config-file configs/ShipRS_config_37+5.yaml
 ```
 
 ## 📈 Evaluation
